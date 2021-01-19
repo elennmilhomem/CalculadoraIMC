@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,8 +15,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   TextEditingController pesoController = TextEditingController();
   TextEditingController alturaController = TextEditingController();
-
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   String _infoStatus = "";
   String _infoImc = "";
@@ -92,7 +89,8 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
+        child: Form(
+          child: Column(
           children: <Widget>[
             SizedBox(
               height: 50,
@@ -105,6 +103,7 @@ class _HomeState extends State<Home> {
                   "Peso",
                   style: TextStyle(
                     color: Color(0xFF0fd09e),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -124,6 +123,7 @@ class _HomeState extends State<Home> {
                         hintStyle: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF0fd09e),
+                          fontWeight: FontWeight.bold,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -148,8 +148,7 @@ class _HomeState extends State<Home> {
                 Text(
                   "Altura",
                   style: TextStyle(
-                    color: Color(0xFF0fd09e),
-                  ),
+                      color: Color(0xFF0fd09e), fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   width: 40,
@@ -167,8 +166,10 @@ class _HomeState extends State<Home> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: "M",
-                        hintStyle:
-                            TextStyle(fontSize: 16, color: Color(0xFF0fd09e)),
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF0fd09e),
+                            fontWeight: FontWeight.bold),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.transparent,
@@ -200,6 +201,7 @@ class _HomeState extends State<Home> {
                   "Calcular",
                   style: TextStyle(
                     color: Color(0xFF0fd09e),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 color: Colors.white,
@@ -207,7 +209,7 @@ class _HomeState extends State<Home> {
             ),
             Padding(padding: EdgeInsets.all(20)),
             Text(
-              "Você está",
+              "VOCÊ ESTÁ",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 16.0),
             ),
@@ -222,7 +224,7 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(25),
             ),
             Text(
-              "O seu IMC atual é",
+              "O SEU IMC ATUAL É",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey, fontSize: 16.0),
             ),
@@ -230,10 +232,11 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(25),
             ),
             Text(
-             " $_infoImc kg/m²",
-              style: TextStyle(color: Color(0xFF0fd09e), fontSize: 35),
+              " $_infoImc kg/m²",
+              style: TextStyle(color: Color(0xFF0fd09e), fontSize: 35, fontWeight: FontWeight.bold),
             ),
           ],
+        ),
         ),
       ),
     );
